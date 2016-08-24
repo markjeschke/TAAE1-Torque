@@ -16,7 +16,6 @@
 		17AF27BD1D6D081900458142 /* AudioController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17AF27BA1D6D081900458142 /* AudioController.m */; };
 		17AF27BE1D6D081900458142 /* TimecodeFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 17AF27BC1D6D081900458142 /* TimecodeFormatter.m */; };
 		17AF27C01D6D082000458142 /* Sounds in Resources */ = {isa = PBXBuildFile; fileRef = 17AF27BF1D6D082000458142 /* Sounds */; };
-		17AF27C31D6D085000458142 /* AudioFileLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 17AF27C21D6D085000458142 /* AudioFileLoader.m */; };
 		E91B4C7C593BA6D0635C96B7 /* libPods-TAAE1-Torque.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 903CF31DDB0D67407CA212AC /* libPods-TAAE1-Torque.a */; };
 /* End PBXBuildFile section */
 
@@ -36,8 +35,6 @@
 		17AF27BB1D6D081900458142 /* TimecodeFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimecodeFormatter.h; sourceTree = "<group>"; };
 		17AF27BC1D6D081900458142 /* TimecodeFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimecodeFormatter.m; sourceTree = "<group>"; };
 		17AF27BF1D6D082000458142 /* Sounds */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Sounds; sourceTree = "<group>"; };
-		17AF27C11D6D085000458142 /* AudioFileLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioFileLoader.h; sourceTree = "<group>"; };
-		17AF27C21D6D085000458142 /* AudioFileLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioFileLoader.m; sourceTree = "<group>"; };
 		64E020DEA2A4DC941A1E1E90 /* Pods-TAAE1-Torque.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TAAE1-Torque.release.xcconfig"; path = "Pods/Target Support Files/Pods-TAAE1-Torque/Pods-TAAE1-Torque.release.xcconfig"; sourceTree = "<group>"; };
 		7D0CDDA765F7CF59171224EE /* Pods-TAAE1-Torque.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TAAE1-Torque.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TAAE1-Torque/Pods-TAAE1-Torque.debug.xcconfig"; sourceTree = "<group>"; };
 		903CF31DDB0D67407CA212AC /* libPods-TAAE1-Torque.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TAAE1-Torque.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -128,8 +125,6 @@
 		17AF28D51D6DF52700458142 /* Helper Classes */ = {
 			isa = PBXGroup;
 			children = (
-				17AF27C11D6D085000458142 /* AudioFileLoader.h */,
-				17AF27C21D6D085000458142 /* AudioFileLoader.m */,
 				17AF27BB1D6D081900458142 /* TimecodeFormatter.h */,
 				17AF27BC1D6D081900458142 /* TimecodeFormatter.m */,
 			);
@@ -276,7 +271,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				17509A911D6D06B7009F0620 /* ViewController.m in Sources */,
-				17AF27C31D6D085000458142 /* AudioFileLoader.m in Sources */,
 				17509A8E1D6D06B7009F0620 /* AppDelegate.m in Sources */,
 				17AF27BD1D6D081900458142 /* AudioController.m in Sources */,
 				17AF27BE1D6D081900458142 /* TimecodeFormatter.m in Sources */,

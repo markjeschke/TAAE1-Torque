@@ -8,7 +8,6 @@
 
 #import "ViewController.h"
 #import "AppDelegate.h"
-#import <CoreMotion/CoreMotion.h>
 
 @interface ViewController () {
     BOOL musicPaused;
@@ -32,24 +31,23 @@
     double timecodeTimerInterval;
 }
 
+// Reference to the AppDelegate and the audio engine sharedInstance
 @property (strong, nonatomic) AppDelegate *appDelegate;
 
-@property (weak, nonatomic) IBOutlet UIButton *pausePlayButton;
+// Timecode timers and display
 @property (nonatomic) NSTimer *timecodeTimer;
 @property (nonatomic) NSTimer *audioSpeedTimer;
 @property (nonatomic) NSTimer *microFadeTimer;
 @property (nonatomic, strong) NSString *timecodeDisplay;
+
+// IBOutlets connected to Main Storyboard
+@property (weak, nonatomic) IBOutlet UIButton *pausePlayButton;
 @property (weak, nonatomic) IBOutlet UILabel *timecodeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *durationLabel;
-@property (nonatomic) CMMotionManager * manager;
-
 @property (weak, nonatomic) IBOutlet UISlider *panSlider;
 @property (weak, nonatomic) IBOutlet UISlider *volumeSlider;
 
-- (IBAction)playKick:(UIButton *)sender;
-- (IBAction)playOpenHiHat:(UIButton *)sender;
-- (IBAction)playClosedHiHat:(UIButton *)sender;
-- (IBAction)playSnare:(UIButton *)sender;
+// IBActions connected to Main Storyboard
 - (IBAction)pausePlay:(UIButton *)sender;
 - (IBAction)panLevel:(UISlider *)sender;
 - (IBAction)volumeLevel:(UISlider *)sender;
@@ -99,28 +97,6 @@
         [self checkMusicStatus];
     }
     return self;
-}
-
-#pragma mark -
-#pragma mark === AUSampler Trigger Actions for Drum Sounds ===
-#pragma mark
-
-// Trigger the AUSampler sounds from the AudioController class.
-
-- (IBAction)playKick:(UIButton *)sender {
-    [_appDelegate.audioController playKickSound];
-}
-
-- (IBAction)playSnare:(UIButton *)sender {
-    [_appDelegate.audioController playSnareSound];
-}
-
-- (IBAction)playClosedHiHat:(UIButton *)sender {
-    [_appDelegate.audioController playClosedHiHatSound];
-}
-
-- (IBAction)playOpenHiHat:(UIButton *)sender {
-    [_appDelegate.audioController playOpenHiHatSound];
 }
 
 #pragma mark -

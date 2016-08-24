@@ -1,0 +1,12 @@
+PODS:
+  - TheAmazingAudioEngine (1.5.6)
+
+DEPENDENCIES:
+  - TheAmazingAudioEngine
+
+SPEC CHECKSUMS:
+  TheAmazingAudioEngine: 0ed8c05486646373a48b22a341d31de42d1af2c3
+
+PODFILE CHECKSUM: 0a902126be0b27021ca9740f9f68fab0c3c566fa
+
+COCOAPODS: 1.0.1

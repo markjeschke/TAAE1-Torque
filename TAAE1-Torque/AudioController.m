@@ -8,7 +8,6 @@
 
 #import "AudioController.h"
 #import <AVFoundation/AVFoundation.h>
-#import "AudioFileLoader.h"
 #import "TimecodeFormatter.h"
 
 #define Check(status) { OSStatus result = (status); if (result != noErr) [NSException raise:@"DrumsAUSampler" format:@"status = %d", (int)result]; }
@@ -22,35 +21,6 @@
 
 // Create the background audio loop
 @property (nonatomic, strong) AEAudioFilePlayer * backgroundAudioLoop;
-
-// Instrument playback via AUSampler
-@property (strong, nonatomic) AudioFileLoader * kick;
-@property (nonatomic) float kickVolume;
-@property (nonatomic) float kickPan;
-@property (nonatomic) int kickVelocity;
-@property (nonatomic) float kickPitch;
-@property (nonatomic, assign) NSString *kickFilePath;
-
-@property (strong, nonatomic) AudioFileLoader * snare;
-@property (nonatomic) float snareVolume;
-@property (nonatomic) float snarePan;
-@property (nonatomic) int snareVelocity;
-@property (nonatomic) float snarePitch;
-@property (nonatomic, assign) NSString *snareFilePath;
-
-@property (strong, nonatomic) AudioFileLoader * closedHiHat;
-@property (nonatomic) float closedHiHatVolume;
-@property (nonatomic) float closedHiHatPan;
-@property (nonatomic) int closedHiHatVelocity;
-@property (nonatomic) float closedHiHatPitch;
-@property (nonatomic, assign) NSString *closedHiHatFilePath;
-
-@property (strong, nonatomic) AudioFileLoader * openHiHat;
-@property (nonatomic) float openHiHatVolume;
-@property (nonatomic) float openHiHatPan;
-@property (nonatomic) int openHiHatVelocity;
-@property (nonatomic) float openHiHatPitch;
-@property (nonatomic, assign) NSString *openHiHatFilePath;
 
 @property (nonatomic, strong) AEAudioFilePlayer * effectTail;
 
@@ -189,73 +159,7 @@
     _backgroundAudioGroup = [_audioController createChannelGroup];
     [_audioController addChannels:@[_backgroundAudioLoop, _effectTail] toChannelGroup:_backgroundAudioGroup];
     
-    // Add AUSampler files
-    
-    // Kick
-    _kickVolume = 2.0;
-    _kickPan = 0.0;
-    _kickPitch = 60;
-    _kickVelocity = (_kickVolume/2)*127;
-    NSLog(@"kickVelocity: %d", _kickVelocity);
-    _kickFilePath = @"/Sounds/CYCdh_AcouKick-15.m4a";
-    
-    _kick = [[AudioFileLoader alloc] init];
-    _kick.filePath = _kickFilePath;
-    _kick.filePan = _kickPan;
-    _kick.filePitch = _kickPitch;
-    _kick.fileVolume = _kickVolume;
-    _kick.fileVelocity = _kickVelocity;
-    
-    [self.audioController addChannels:@[_kick]];
-    
-    // Snare
-    _snareVolume = 2.0; // <- Audio volume is 0.0 min - 2.0 max
-    _snarePan = 0.0; // <- Pan allows the audio to be stereo-panned. The center = 0.0, the far left pan = -1.0, and far right is 1.0
-    _snarePitch = 60; // <- #60 is the MIDI note that matches the audio sample's original pitch. One octave up would be #72. One octave down would be #48.
-    _snareVelocity = (_snareVolume/2)*127; // <- The MIDI velocity will be set from the audio file's volume level.
-    _snareFilePath = @"/Sounds/CYCdh_LudRimA-04.m4a"; // <- Input the path location of the audio file that you'd like to use.
-    
-    _snare = [[AudioFileLoader alloc] init];
-    _snare.filePath = _snareFilePath;
-    _snare.filePan = _snarePan;
-    _snare.filePitch = _snarePitch;
-    _snare.fileVolume = _snareVolume;
-    _snare.fileVelocity = _snareVelocity;
-    
-    [self.audioController addChannels:@[_snare]];
-    
-    // Closed Hi-Hat
-    _closedHiHatVolume = 2.0;
-    _closedHiHatPan = 0.0;
-    _closedHiHatPitch = 60;
-    _closedHiHatVelocity = (_closedHiHatVolume/2)*127;
-    _closedHiHatFilePath = @"/Sounds/KHats Clsd-09.m4a";
-    
-    _closedHiHat = [[AudioFileLoader alloc] init];
-    _closedHiHat.filePath = _closedHiHatFilePath;
-    _closedHiHat.filePan = _closedHiHatPan;
-    _closedHiHat.filePitch = _closedHiHatPitch;
-    _closedHiHat.fileVolume = _closedHiHatVolume;
-    _closedHiHat.fileVelocity = _closedHiHatVelocity;
-    
-    [self.audioController addChannels:@[_closedHiHat]];
-    
-    // Open Hi-Hat
-    _openHiHatVolume = 2.0;
-    _openHiHatPan = 0.0;
-    _openHiHatPitch = 60;
-    _openHiHatVelocity = (_openHiHatVolume/2)*127;
-    _openHiHatFilePath = @"/Sounds/KHats Open-09.m4a";
-    
-    _openHiHat = [[AudioFileLoader alloc] init];
-    _openHiHat.filePath = _openHiHatFilePath;
-    _openHiHat.filePan = _openHiHatPan;
-    _openHiHat.filePitch = _openHiHatPitch;
-    _openHiHat.fileVolume = _openHiHatVolume;
-    _openHiHat.fileVelocity = _openHiHatVelocity;
-    
-    [self.audioController addChannels:@[_openHiHat]];
-    
+    // Apply effects filters
     [self applyFilterEffectsToChannels];
     
 }
@@ -364,30 +268,8 @@
 }
 
 #pragma mark -
-#pragma mark === Public Actions to Trigger Audio Samples ===
+#pragma mark === Public Action to Play Audio Loop ===
 #pragma mark
-
-- (void) playKickSound {
-    [_kick playSample];
-}
-
-- (void) playSnareSound {
-    [_snare playSample];
-}
-
-- (void) playClosedHiHatSound {
-    // If the open hi-hat's channel is playing, turn it off.
-    if (_openHiHat) {
-        _openHiHat.channelIsPlaying = false;
-    }
-    [_closedHiHat playSample];
-}
-
-- (void) playOpenHiHatSound {
-    // Turn the open hi-hat channel to on.
-    _openHiHat.channelIsPlaying = true;
-    [_openHiHat playSample];
-}
 
 - (void)backgroundAudioPlayPauseButtonPressed {
     if ( _backgroundAudioLoop ) {

@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-// Import The Amazing Audio Engine: http://theamazingaudioengine.com/
+// Import The Amazing Audio Engine via CocoaPods: http://theamazingaudioengine.com/
 #import "TheAmazingAudioEngine.h"
 
 // Import the available effects filters
@@ -36,20 +36,17 @@
 - (void)startEngine;
 - (void)stopEngine;
 
-// Triggering the AUSampler/MIDI drum event sounds
-- (void)playKickSound;
-- (void)playSnareSound;
-- (void)playClosedHiHatSound;
-- (void)playOpenHiHatSound;
-
 - (void)backgroundAudioPlayPauseButtonPressed;
 
 // Get the timecode and duration in seconds
 - (NSString *)getCurrentTimecode;
 - (NSString *)getDurationTimecode;
 
-// Access Varispeed playbackCents parameter for audio slow-down effect
+// Access varispeed playbackCents parameter for audio slow-down effect
 @property (nonatomic) double varispeedPlaybackCents;
+
+// Access delay wet/dry mix between 0-100%.
+@property (nonatomic) double delayWetDryMix;
 
 // Access backgroundAudioLoop's AudioFilePlayer properties
 @property (nonatomic) double backgroundAudioLoopVolume;
@@ -57,7 +54,5 @@
 @property (nonatomic) double backgroundAudioLoopChannelIsPlaying;
 @property (nonatomic) double backgroundAudioLoopCurrentTime;
 @property (nonatomic) double backgroundAudioLoopPan;
-
-@property (nonatomic) double delayWetDryMix;
 
 @end
