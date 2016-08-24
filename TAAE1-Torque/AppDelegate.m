@@ -16,7 +16,9 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    // Instantiate the audioController object.
+    self.audioController = [[AudioController alloc] init];
+    
     return YES;
 }
 

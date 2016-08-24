@@ -7,11 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AudioController.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 
+// Public access to the audioController engine
+@property (strong, nonatomic) AudioController *audioController;
 
 @end
 

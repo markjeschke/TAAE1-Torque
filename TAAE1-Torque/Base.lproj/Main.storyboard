@@ -1,25 +1,127 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="e79-4Y-Yog">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <scene sceneID="ao0-sL-N4w">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="e79-4Y-Yog" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                        <viewControllerLayoutGuide type="top" id="7gX-bB-wHv"/>
+                        <viewControllerLayoutGuide type="bottom" id="g4L-hu-JrD"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <view key="view" contentMode="scaleToFill" id="sbd-rH-u02">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UcR-5y-ayR">
+                                <rect key="frame" x="157" y="172" width="286" height="256"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wCT-J7-u1e">
+                                        <rect key="frame" x="136" y="-5" width="74" height="60"/>
+                                        <state key="normal" title="C. Hi-Hat"/>
+                                        <connections>
+                                            <action selector="playClosedHiHat:" destination="e79-4Y-Yog" eventType="touchDown" id="LBw-hD-Y0I"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ccA-JZ-EBU">
+                                        <rect key="frame" x="60" y="68" width="157" height="30"/>
+                                        <state key="normal" title="Play"/>
+                                        <connections>
+                                            <action selector="pausePlay:" destination="e79-4Y-Yog" eventType="touchUpInside" id="37L-Sg-yko"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="/" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fFv-0e-bXO">
+                                        <rect key="frame" x="136" y="104" width="12" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="00:00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="orL-KI-wNw">
+                                        <rect key="frame" x="60" y="106" width="80" height="20"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="-1" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="K7a-MR-khv">
+                                        <rect key="frame" x="58" y="161" width="161" height="31"/>
+                                        <connections>
+                                            <action selector="panLevel:" destination="e79-4Y-Yog" eventType="valueChanged" id="1Cs-72-8HR"/>
+                                        </connections>
+                                    </slider>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="00:00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YCs-td-IA2">
+                                        <rect key="frame" x="146" y="105" width="80" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p78-ko-7bp">
+                                        <rect key="frame" x="221" y="-5" width="65" height="60"/>
+                                        <state key="normal" title="O. Hi-Hat"/>
+                                        <connections>
+                                            <action selector="playOpenHiHat:" destination="e79-4Y-Yog" eventType="touchDown" id="RaP-F1-KU9"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Pan" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fDI-gX-2KQ">
+                                        <rect key="frame" x="60" y="137" width="157" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4U3-On-bNc">
+                                        <rect key="frame" x="0.0" y="-5" width="65" height="60"/>
+                                        <state key="normal" title="Kick"/>
+                                        <connections>
+                                            <action selector="playKick:" destination="e79-4Y-Yog" eventType="touchDown" id="hFL-bc-CFV"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Apn-WK-ICH">
+                                        <rect key="frame" x="63" y="-5" width="65" height="60"/>
+                                        <state key="normal" title="Snare"/>
+                                        <connections>
+                                            <action selector="playSnare:" destination="e79-4Y-Yog" eventType="touchDown" id="Zgc-2V-z5p"/>
+                                        </connections>
+                                    </button>
+                                    <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Xoy-NY-ZSj">
+                                        <rect key="frame" x="58" y="226" width="161" height="31"/>
+                                        <connections>
+                                            <action selector="volumeLevel:" destination="e79-4Y-Yog" eventType="valueChanged" id="TDl-Wl-gBI"/>
+                                        </connections>
+                                    </slider>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Volume" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gW9-hs-l8t">
+                                        <rect key="frame" x="60" y="201" width="157" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="256" id="FBD-CC-Y2D"/>
+                                    <constraint firstAttribute="width" constant="286" id="WSd-hv-Vb9"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="UcR-5y-ayR" firstAttribute="centerX" secondItem="sbd-rH-u02" secondAttribute="centerX" id="0ft-99-C0j"/>
+                            <constraint firstItem="UcR-5y-ayR" firstAttribute="centerY" secondItem="sbd-rH-u02" secondAttribute="centerY" id="3ij-Qv-r9P"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="durationLabel" destination="YCs-td-IA2" id="hGC-Q3-zVt"/>
+                        <outlet property="panSlider" destination="K7a-MR-khv" id="yLT-Lr-1bH"/>
+                        <outlet property="pausePlayButton" destination="ccA-JZ-EBU" id="joP-uj-YKk"/>
+                        <outlet property="timecodeLabel" destination="orL-KI-wNw" id="vW9-2Z-L8g"/>
+                        <outlet property="volumeSlider" destination="Xoy-NY-ZSj" id="L1w-cO-nHb"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gTj-hY-py4" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="305" y="327"/>
         </scene>
     </scenes>
 </document>
