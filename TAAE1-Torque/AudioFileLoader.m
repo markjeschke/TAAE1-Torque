@@ -1,8 +1,8 @@
 //
 //  AudioFileLoader.m
-//  DrumsAUSampler
+//  TAAE1-Torque
 //
-//  Created by Mark Jeschke on 7/18/16.
+//  Created by Mark Jeschke on 8/23/16.
 //  Copyright © 2016 Mark Jeschke. All rights reserved.
 //
 
@@ -11,7 +11,7 @@
 #import <UIKit/UIKit.h>
 #import <AudioToolbox/AudioToolbox.h>
 
-#define Check(status) { OSStatus result = (status); if (result != noErr) [NSException raise:@"TFA Weapons" format:@"status = %d", (int)result]; }
+#define Check(status) { OSStatus result = (status); if (result != noErr) [NSException raise:@"TAAE1-Torque" format:@"status = %d", (int)result]; }
 
 #define RES_URL(f) [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:(f) ofType:NULL]]
 

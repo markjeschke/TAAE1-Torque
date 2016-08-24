@@ -14,8 +14,8 @@
     BOOL musicPaused;
     
     double currentTorqueSpeed;
-    double pauseTorqueSpeed;
-    double playTorqueSpeed;
+    double pausePlaybackTorqueSpeed;
+    double restartPlaybackTorqueSpeed;
     
     double currentVarispeed;
     double targetVarispeed;
@@ -70,13 +70,13 @@
         // Access audio engine object instantiated in the application delegate header.
         _appDelegate = (AppDelegate*)[[UIApplication sharedApplication]delegate];
         
-        // Initialize params.
+        // Initialize parameters
         
         musicPaused = false;
         
         currentTorqueSpeed = 0.0; // Torque speed gets set in the 'changeAudioSpeed' method.
-        pauseTorqueSpeed = 0.003;
-        playTorqueSpeed = 0.006;
+        pausePlaybackTorqueSpeed = 0.003;
+        restartPlaybackTorqueSpeed = 0.006;
         
         currentVarispeed = 0.0; // Initial speed
         targetVarispeed = 0.0; // Target varispeed gets set in the 'changeAudioSpeed' method.
@@ -89,7 +89,7 @@
         volumeChangeInterval = 0.1;
         timerFadeInterval = 0.04; // The speed of the audio fade out transition.
         
-        timecodeTimerInterval = 0.1; // The update time interval for the timecode display.
+        timecodeTimerInterval = 0.1; // The refresh time interval for the timecode display NSTimer.
         
         // Set the timecode playback and duration textLabels
         _timecodeLabel.text = [_appDelegate.audioController getCurrentTimecode];
@@ -186,8 +186,8 @@
 #pragma mark
 
 - (void) changeAudioSpeed {
-    targetVarispeed = musicPaused ? slowSpeed : normalSpeed; // If musicPaused, set the 'targetVarispeed' to 2 octaves below the normal pitch (-2400.0). Otherwise, set it to its normal pitch (0.0)
-    currentTorqueSpeed = musicPaused ? pauseTorqueSpeed : playTorqueSpeed; // If musicPaused, set the timerInterval to 'stopTorque' speed. Otherwise set it to 'playTorqueSpeed' speed.
+    targetVarispeed = musicPaused ? slowSpeed : normalSpeed; // If musicPaused: true, set the 'targetVarispeed' to 2 octaves below the normal pitch (-2400.0). Otherwise, set it to its normal pitch (0.0)
+    currentTorqueSpeed = musicPaused ? pausePlaybackTorqueSpeed : restartPlaybackTorqueSpeed; // If musicPaused: true, set the timerInterval to 'pauseTorque' speed. Otherwise set it to 'restartPlaybackTorqueSpeed' speed.
     _audioSpeedTimer = [NSTimer scheduledTimerWithTimeInterval: currentTorqueSpeed
                                                         target: self
                                                       selector:@selector(audioChangeTimeout)

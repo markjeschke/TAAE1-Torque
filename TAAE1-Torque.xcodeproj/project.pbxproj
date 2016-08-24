@@ -78,19 +78,10 @@
 			children = (
 				17509A8C1D6D06B7009F0620 /* AppDelegate.h */,
 				17509A8D1D6D06B7009F0620 /* AppDelegate.m */,
-				17509A8F1D6D06B7009F0620 /* ViewController.h */,
-				17509A901D6D06B7009F0620 /* ViewController.m */,
-				17AF27B91D6D081900458142 /* AudioController.h */,
-				17AF27BA1D6D081900458142 /* AudioController.m */,
-				17AF27C11D6D085000458142 /* AudioFileLoader.h */,
-				17AF27C21D6D085000458142 /* AudioFileLoader.m */,
-				17AF27BB1D6D081900458142 /* TimecodeFormatter.h */,
-				17AF27BC1D6D081900458142 /* TimecodeFormatter.m */,
-				17509A921D6D06B7009F0620 /* Main.storyboard */,
+				17AF28D21D6DF4FE00458142 /* Model */,
+				17AF28D41D6DF51400458142 /* View */,
+				17AF28D31D6DF50800458142 /* Controller */,
 				17AF27BF1D6D082000458142 /* Sounds */,
-				17509A951D6D06B7009F0620 /* Assets.xcassets */,
-				17509A971D6D06B7009F0620 /* LaunchScreen.storyboard */,
-				17509A9A1D6D06B7009F0620 /* Info.plist */,
 				17509A891D6D06B7009F0620 /* Supporting Files */,
 			);
 			path = "TAAE1-Torque";
@@ -99,9 +90,50 @@
 		17509A891D6D06B7009F0620 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				17509A951D6D06B7009F0620 /* Assets.xcassets */,
+				17509A971D6D06B7009F0620 /* LaunchScreen.storyboard */,
+				17509A9A1D6D06B7009F0620 /* Info.plist */,
 				17509A8A1D6D06B7009F0620 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		17AF28D21D6DF4FE00458142 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				17AF27B91D6D081900458142 /* AudioController.h */,
+				17AF27BA1D6D081900458142 /* AudioController.m */,
+				17AF28D51D6DF52700458142 /* Helper Classes */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		17AF28D31D6DF50800458142 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				17509A8F1D6D06B7009F0620 /* ViewController.h */,
+				17509A901D6D06B7009F0620 /* ViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		17AF28D41D6DF51400458142 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				17509A921D6D06B7009F0620 /* Main.storyboard */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		17AF28D51D6DF52700458142 /* Helper Classes */ = {
+			isa = PBXGroup;
+			children = (
+				17AF27C11D6D085000458142 /* AudioFileLoader.h */,
+				17AF27C21D6D085000458142 /* AudioFileLoader.m */,
+				17AF27BB1D6D081900458142 /* TimecodeFormatter.h */,
+				17AF27BC1D6D081900458142 /* TimecodeFormatter.m */,
+			);
+			name = "Helper Classes";
 			sourceTree = "<group>";
 		};
 		485DEEFA70F340030F574A29 /* Frameworks */ = {
@@ -364,7 +396,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "TAAE1-Torque/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -379,7 +411,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "TAAE1-Torque/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.oogamedia.TAAE1-Torque";
 				PRODUCT_NAME = "$(TARGET_NAME)";

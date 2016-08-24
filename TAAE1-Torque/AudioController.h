@@ -1,17 +1,17 @@
 //
-//  AudioManager.h
-//  DrumsAUSampler
+//  AudioController.h
+//  TAAE1-Torque
 //
-//  Created by Mark Jeschke on 7/18/16.
+//  Created by Mark Jeschke on 8/23/16.
 //  Copyright © 2016 Mark Jeschke. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 
-// Import The Amazing Audio Engine
+// Import The Amazing Audio Engine: http://theamazingaudioengine.com/
 #import "TheAmazingAudioEngine.h"
 
-// Import effects filters
+// Import the available effects filters
 #import "AEBandpassFilter.h"
 #import "AEDelayFilter.h"
 #import "AEDistortionFilter.h"
@@ -30,13 +30,13 @@
 
 @interface AudioController : NSObject
 
-// Public methods for other ViewControllers to access.
+// Public methods for ViewControllers to access.
 
 // Start/stop the audio engine
 - (void)startEngine;
 - (void)stopEngine;
 
-// Triggering the AUSampler/MIDI event sounds
+// Triggering the AUSampler/MIDI drum event sounds
 - (void)playKickSound;
 - (void)playSnareSound;
 - (void)playClosedHiHatSound;
@@ -44,10 +44,11 @@
 
 - (void)backgroundAudioPlayPauseButtonPressed;
 
+// Get the timecode and duration in seconds
 - (NSString *)getCurrentTimecode;
 - (NSString *)getDurationTimecode;
 
-// Access Varispeed playbackCents parameter
+// Access Varispeed playbackCents parameter for audio slow-down effect
 @property (nonatomic) double varispeedPlaybackCents;
 
 // Access backgroundAudioLoop's AudioFilePlayer properties

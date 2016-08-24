@@ -1,8 +1,8 @@
 //
 //  AudioFileLoader.h
-//  DrumsAUSampler
+//  TAAE1-Torque
 //
-//  Created by Mark Jeschke on 7/18/16.
+//  Created by Mark Jeschke on 8/23/16.
 //  Copyright © 2016 Mark Jeschke. All rights reserved.
 //
 

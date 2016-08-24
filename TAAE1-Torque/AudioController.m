@@ -1,10 +1,10 @@
 //
 //  AudioController.m
-//  DrumsAUSampler
+//  TAAE1-Torque
 //
-//  Created by Mark Jeschke on 7/18/16.
+//  Created by Mark Jeschke on 8/23/16.
 //  Copyright © 2016 Mark Jeschke. All rights reserved.
-//
+//s
 
 #import "AudioController.h"
 #import <AVFoundation/AVFoundation.h>
@@ -78,7 +78,9 @@
 
 @implementation AudioController
 
-// Setters
+#pragma mark -
+#pragma mark === Setters for Public Access Updates from ViewController ===
+#pragma mark
 
 -(void)setVarispeedPlaybackCents:(double)varispeedPlaybackCents {
     _varispeedPlaybackCents = varispeedPlaybackCents;
@@ -124,6 +126,9 @@
     return [_timecodeFormatter timeFormatted:_backgroundAudioLoop.duration];
 }
 
+#pragma mark -
+#pragma mark === Initialize Audio Engine ===
+#pragma mark
 
 - (instancetype)init {
     if ( !(self = [super init]) ) return nil;
@@ -140,6 +145,10 @@
     return self;
 }
 
+#pragma mark -
+#pragma mark === Start/Stop Audio Engine ===
+#pragma mark
+
 - (void)startEngine {
     NSError *error = NULL;
     BOOL result = [_audioController start:&error];
@@ -148,7 +157,6 @@
         NSLog(@"The Amazing Audio Engine didn't start!");
     } else {
         NSLog(@"The Amazing Audio Engine started perfectly!");
-        
         [self initializeAudioFilesFiles];
         
     }
@@ -158,6 +166,10 @@
     [_audioController stop];
     NSLog(@"Audio engine was stopped");
 }
+
+#pragma mark -
+#pragma mark === Initialize Audio Files ===
+#pragma mark
 
 - (void)initializeAudioFilesFiles {
     
@@ -247,6 +259,10 @@
     [self applyFilterEffectsToChannels];
     
 }
+
+#pragma mark -
+#pragma mark === Set the Effects Filters ===
+#pragma mark
 
 - (void) applyFilterEffectsToChannels {
 
@@ -347,6 +363,10 @@
     
 }
 
+#pragma mark -
+#pragma mark === Public Actions to Trigger Audio Samples ===
+#pragma mark
+
 - (void) playKickSound {
     [_kick playSample];
 }
@@ -374,7 +394,7 @@
         if (!_backgroundAudioLoop.channelIsPlaying) {
             _backgroundAudioLoop.channelIsPlaying = YES;
         }
-        NSLog(@"Music loop is playing: %@", _backgroundAudioLoop.channelIsPlaying ? @"YES" : @"NO");
+        //NSLog(@"Music loop is playing: %@", _backgroundAudioLoop.channelIsPlaying ? @"YES" : @"NO");
     }
 }
 
